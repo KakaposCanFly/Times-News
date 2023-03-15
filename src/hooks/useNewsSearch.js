@@ -40,7 +40,7 @@ function useNewsSearch(query) {
             }
 
             if (!ignore) {
-                setArticles(responseBody.items || [])
+                setArticles(responseBody.articles || [])
                 setLoading(false)
             }
         }
