@@ -1,19 +1,19 @@
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
 
-import MainScreen from './components/MainScreen'
-import Article from './components/Article'
 import './App.css';
+import Article from './components/Article';
+import MainScreen from './components/MainScreen';
 
 function App() {
   return (
-  <>
+    <>
 
-    <Routes>
-      <Route index element={<MainScreen />} />
-      <Route path="/article" element={<Article />} />
-    </Routes>
+      <Routes>
+        <Route index element={<MainScreen />} />
+        <Route path="/article" element={<Article />} />
+      </Routes>
 
-  </>
+    </>
   );
 }
 
