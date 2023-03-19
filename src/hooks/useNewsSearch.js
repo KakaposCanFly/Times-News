@@ -1,16 +1,39 @@
 import { useEffect, useState } from 'react'
 
-function useNewsSearch(query) {
+function useNewsSearch(query, type, domain, country, language) {
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        const apiKey = "c0797e4a2d5f0b8d6bacfe8cbd932827"
+        console.log("query: ", query)
+        console.log("type: ", type)
+        console.log("domain: ", domain)
+        console.log("country: ", country)
+        console.log("language: ", language)
+        console.log("encodeURIComponent(query): ", encodeURIComponent(query))
+        const apiKey = "14f5e11baa7143a997242244a60a16e9"
+        let queryString = "https://newsapi.org/v2/"
 
         //possibly have different combos of api calls here
-        let queryString = ""
-        queryString = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
+        if (type === "top-headlines") {
+            queryString = `${queryString}top-headlines?country=${country}&`
+        } else {
+            queryString = `${queryString}everything?language=${language}&`
+        }
+
+        if (query !== "") {
+            queryString = `${queryString}q=${encodeURIComponent(query)}&`
+        }
+
+        if (domain !== "") {
+            queryString = `${queryString}domains=${domain}&`
+        }
+
+        queryString = `${queryString}apiKey=${apiKey}`
+        console.log(queryString)
+
+        // queryString = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
 
         let ignore = false
         const controller = new AbortController()
@@ -51,7 +74,7 @@ function useNewsSearch(query) {
             ignore = true
             controller.abort()
         }
-    }, [query])
+    }, [query, type, domain, country, language])
 
     return [articles, loading, error]
 }
