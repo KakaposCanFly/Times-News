@@ -6,12 +6,12 @@ function useNewsSearch(query, type, domain, country, language) {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        console.log("query: ", query)
-        console.log("type: ", type)
-        console.log("domain: ", domain)
-        console.log("country: ", country)
-        console.log("language: ", language)
-        console.log("encodeURIComponent(query): ", encodeURIComponent(query))
+        // console.log("query: ", query)
+        // console.log("type: ", type)
+        // console.log("domain: ", domain)
+        // console.log("country: ", country)
+        // console.log("language: ", language)
+        // console.log("encodeURIComponent(query): ", encodeURIComponent(query))
         const apiKey = "14f5e11baa7143a997242244a60a16e9"
         let queryString = "https://newsapi.org/v2/"
 
@@ -31,7 +31,7 @@ function useNewsSearch(query, type, domain, country, language) {
         }
 
         queryString = `${queryString}apiKey=${apiKey}`
-        console.log(queryString)
+        console.log("Query string is: ", queryString)
 
         // queryString = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
 

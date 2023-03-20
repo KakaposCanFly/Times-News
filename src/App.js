@@ -4,6 +4,7 @@ import { Route, Routes, useSearchParams } from 'react-router-dom';
 import './App.css';
 import Article from './components/Article';
 import MainScreen from './components/MainScreen';
+import Topics from './components/Topics';
 import useNewsSearch from './hooks/useNewsSearch';
 import countries from './selections/countries.json';
 import languages from './selections/languages.json';
@@ -54,39 +55,29 @@ function App() {
           <select onChange={
             e => setLanguage(e.target.value)
           }>
-            <option value="en" selected>en</option>
+            <option value="en" selected>EN</option>
             {languages.map((code, idx) => (
-              <option key={idx} value={code.code}>{code.code}</option>
+              <option key={idx} value={code.code}>{(code.code).toUpperCase()}</option>
             ))}
           </select>
           <select onChange={
             e => setCountry(e.target.value)
           }>
-            <option value="us" selected>us</option>
+            <option value="us" selected>US</option>
             {countries.map((code, idx) => (
-              <option key={idx} value={code.code}>{code.code}</option>
+              <option key={idx} value={code.code}>{(code.code).toUpperCase()}</option>
             ))}
           </select>
           <button type='submit'>Search</button>
         </form>
       </div>
-
-      <span>
-        <ul>
-          <li>All</li>
-          <li>Business</li>
-          <li>Entertainment</li>
-          <li>General</li>
-          <li>Health</li>
-          <li>Science</li>
-          <li>Sports</li>
-          <li>Technology</li>
-        </ul>
-      </span>
+    
+      {/* Areas of interest */}
+      <Topics />
 
       <Routes>
-        <Route index element={<MainScreen articles={articles} loading={loading} eror={error} />} />
-        <Route path="/article" element={<Article />} />
+        <Route index element={<MainScreen articles={articles} loading={loading} error={error} />} />
+        <Route path="/article/:title" element={<Article />} />
       </Routes>
 
     </>
