@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import ReactHtmlParser from 'html-react-parser';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import axios from 'axios'; 
-import ReactHtmlParser from 'react-html-parser';
 // parse html content using this package
 // better than messing with inner html imo
 

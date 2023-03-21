@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function useNewsSearch(query, type, domain, country, language) {
+function useNewsSearch(query, domain, language) {
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -16,14 +16,10 @@ function useNewsSearch(query, type, domain, country, language) {
         let queryString = "https://newsapi.org/v2/"
 
         //possibly have different combos of api calls here
-        if (type === "top-headlines") {
-            queryString = `${queryString}top-headlines?country=${country}&`
-        } else {
-            queryString = `${queryString}everything?language=${language}&`
-        }
+        queryString = `${queryString}everything?language=${language}&`
 
         if (query !== "") {
-            queryString = `${queryString}q=${encodeURIComponent(query)}&`
+            queryString = `${queryString}q=${encodeURIComponent(query)}&sortBy=publishedAt&`
         }
 
         if (domain !== "") {
@@ -38,6 +34,7 @@ function useNewsSearch(query, type, domain, country, language) {
         let ignore = false
         const controller = new AbortController()
         async function fetchSearchResults() {
+            console.log("here")
             setLoading(true)
             let responseBody = {}
             try {
@@ -74,7 +71,7 @@ function useNewsSearch(query, type, domain, country, language) {
             ignore = true
             controller.abort()
         }
-    }, [query, type, domain, country, language])
+    }, [query, domain, language])
 
     return [articles, loading, error]
 }

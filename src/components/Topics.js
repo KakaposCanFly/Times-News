@@ -1,5 +1,6 @@
-import React from 'react'
 import styled from '@emotion/styled/macro'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const InterestAreas = styled.ul`
     background-color: aliceblue;
@@ -12,6 +13,10 @@ const InterestAreas = styled.ul`
 `
 
 const Topic = styled.li`
+    &:hover{
+        cursor: pointer;
+    }
+    
     img {
         overflow: hidden;
         width: 80px;
@@ -25,13 +30,48 @@ function Topics(props) {
         <>
             <span>
                 <InterestAreas>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>All</p></Topic>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>Business</p></Topic>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>Entertainment</p></Topic>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>General</p></Topic>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>Health</p></Topic>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>Science</p></Topic>
-                    <Topic><img src="https://www.w3schools.com/css/paris.jpg" alt="photo"/> <p>Sports</p></Topic>
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("business")
+                            props.setQueryParam("business")
+                        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>Business</p></Topic>
+                    </Link>
+
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("entertainment")
+                            props.setQueryParam("entertainment")
+                        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>Entertainment</p></Topic>
+                    </Link>
+
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("general")
+                            props.setQueryParam("general")
+                        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>General</p></Topic>
+                    </Link>
+
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("health")
+                            props.setQueryParam("health")
+                        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>Health</p></Topic>
+                    </Link>
+
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("science")
+                            props.setQueryParam("science")
+                        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>Science</p></Topic>
+                    </Link>
+
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("sports")
+                            props.setQueryParam("sports")
+                        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>Sports</p></Topic>
+                    </Link>
+
                 </InterestAreas>
             </span>
             {/* {props.articles.map((article, idx) => (

@@ -1,6 +1,6 @@
+import styled from '@emotion/styled/macro'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from '@emotion/styled/macro'
 import LandingPage from './LandingPage'
 
 const ArticleList = styled.ul`
@@ -28,17 +28,20 @@ function MainScreen(props) {
     console.log("These are the articles: ", props.articles)
     return (
         <>
-            
+
             {props.articles.length === 0 ? <LandingPage /> : <ArticleList>
                 {props.articles.map((article, idx) => (
                     <Link key={idx} to={`/article/${article.title}`} state={article}>
                         <ArticleBox>
-                            <img src={article.urlToImage} alt="poster"/>
+                            {article.urlToImage ? (
+                                <img src={article.urlToImage} alt="poster" />
+                            ) : <></>}
+
                             {article.title}
-                            
+
                         </ArticleBox>
                     </Link>
-                    
+
                 ))}
             </ArticleList>}
             {/* <h1>This is the Main Screen!</h1> */}
