@@ -23,9 +23,15 @@
   font-weight: 600;
 }
 
+
 .temp {
   font-weight: 500;
   
+}
+
+.temp--icon {
+  margin-bottom: 10px;
+  margin-right: -10px;
 }
 
 .temp-min {
