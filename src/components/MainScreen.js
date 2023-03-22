@@ -9,6 +9,7 @@ const ArticleList = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
+    justify-content: center;
     gap:20px;
 `
 const SpinnerDiv = styled.div`
