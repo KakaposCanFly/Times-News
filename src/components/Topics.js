@@ -51,41 +51,47 @@ function Topics(props) {
         <>
             <span>
                 <InterestAreas>
-                    <TopicItem
-                        setQuery={props.setQuery}
-                        setQueryParam={props.setQueryParam}
-                        interest={"business"}
-                    />
-                    <TopicItem
-                        setQuery={props.setQuery}
-                        setQueryParam={props.setQueryParam}
-                        interest={"entertainment"}
-                    />
-                    <TopicItem
-                        setQuery={props.setQuery}
-                        setQueryParam={props.setQueryParam}
-                        interest={"general"}
-                    />
-                    <TopicItem
-                        setQuery={props.setQuery}
-                        setQueryParam={props.setQueryParam}
-                        interest={"health"}
-                    />
-                    <TopicItem
-                        setQuery={props.setQuery}
-                        setQueryParam={props.setQueryParam}
-                        interest={"science"}
-                    />
-                    <TopicItem
-                        setQuery={props.setQuery}
-                        setQueryParam={props.setQueryParam}
-                        interest={"sports"}
-                    />
+                <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("business")
+                            props.setQueryParam("business")
+                        }}> <p>Business</p></Topic>
+                    </Link>
                     <Link to="/">
                         <Topic onClick={e => {
                             props.setQuery("entertainment")
                             props.setQueryParam("entertainment")
                         }}> <p>Entertainment</p></Topic>
+                    </Link>
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("general")
+                            props.setQueryParam("general")
+                        }}> <p>General</p></Topic>
+                    </Link>
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("health")
+                            props.setQueryParam("health")
+                        }}> <p>Health</p></Topic>
+                    </Link>
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("science")
+                            props.setQueryParam("science")
+                        }}> <p>Science</p></Topic>
+                    </Link>
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("sports")
+                            props.setQueryParam("sports")
+                        }}> <p>Sports</p></Topic>
+                    </Link>
+                    <Link to="/">
+                        <Topic onClick={e => {
+                            props.setQuery("crypto")
+                            props.setQueryParam("crypto")
+                        }}> <p>Crypto</p></Topic>
                     </Link>
                 </InterestAreas>
             </span>
