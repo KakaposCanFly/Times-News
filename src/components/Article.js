@@ -29,11 +29,14 @@ function Article() {
   }, [url]);
 
   return (
-    <>
+    <div className='article--container'>
       <h1>{article.title}</h1>
-      <h3>{article.byline}</h3>
-      <div>{ReactHtmlParser(article.content)}</div>
-    </>
+    <div className='article--author'>
+        <img className="img--author" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" height={50} alt="pfp"></img>
+      <h5>By {article.byline}</h5>
+      </div>
+      <div className='article--body'>{ReactHtmlParser(article.content)}</div>
+    </div>
   );
 }
 

@@ -8,6 +8,7 @@ const ArticleList = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
+    gap:20px;
 `
 
 const ArticleBox = styled.li`
@@ -31,15 +32,17 @@ function MainScreen(props) {
 
             {props.articles.length === 0 ? <LandingPage /> : <ArticleList>
                 {props.articles.map((article, idx) => (
-                    <Link key={idx} to={`/article/${article.title}`} state={article}>
-                        <ArticleBox>
+                    <Link key={idx}  to={`/article/${article.title}`} state={article}>
+                        <div className="card w card--container">
                             {article.urlToImage ? (
-                                <img src={article.urlToImage} alt="poster" />
-                            ) : <></>}
+                                <img className="img--size card-img-top" src={article.urlToImage} alt="poster" />
+                            ) : <img className="img--size card-img-top"src={"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"} alt="na"/>}
 
-                            {article.title}
-
-                        </ArticleBox>
+                            <div className="card-body">
+                            <h5 className="card-title">{article.title}</h5>
+                            <p className='card-text fon'>{article.description}</p>
+                            </div>
+                        </div>
                     </Link>
 
                 ))}
