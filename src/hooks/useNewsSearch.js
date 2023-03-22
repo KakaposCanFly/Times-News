@@ -12,7 +12,7 @@ function useNewsSearch(query, domain, language) {
         // console.log("country: ", country)
         // console.log("language: ", language)
         // console.log("encodeURIComponent(query): ", encodeURIComponent(query))
-        const apiKey = "14f5e11baa7143a997242244a60a16e9"
+        const apiKey = "651560d835554a16997d36317515c6e6"
         let queryString = "https://newsapi.org/v2/"
 
         //possibly have different combos of api calls here

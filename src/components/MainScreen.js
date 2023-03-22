@@ -16,13 +16,19 @@ const SpinnerDiv = styled.div`
     justify-content: center;
 `
 
+const ArticleLink = styled(Link)`
+    &:hover{
+        text-decoration: none;
+    }
+`
+
 function MainScreen(props) {
     console.log("These are the articles: ", props.articles)
     return (
         <>
             {props.articles.length === 0 ? <LandingPage /> : props.loading ? <SpinnerDiv> <Spinner id="spinner" /> </SpinnerDiv> : <ArticleList>
                 {props.articles.map((article, idx) => (
-                    <Link key={idx} to={`/article/${article.title}`} state={article}>
+                    <ArticleLink key={idx} to={`/article/${article.title}`} state={article}>
                         <div className="card w card--container">
                             {article.urlToImage ? (
                                 <img className="img--size card-img-top" src={article.urlToImage} alt="poster" />
@@ -33,7 +39,7 @@ function MainScreen(props) {
                                 <p className='card-text fon'>{article.description}</p>
                             </div>
                         </div>
-                    </Link>
+                    </ArticleLink>
 
                 ))}
             </ArticleList>}
