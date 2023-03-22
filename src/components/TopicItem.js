@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled/macro'
 const Topic = styled.li`
+
+color: black;
     &:hover{
         cursor: pointer;
     }
@@ -23,7 +25,7 @@ export default function TopicItem({setQuery, setQueryParam, interest}) {
         <Topic onClick={e => {
             setQuery({interest})
             setQueryParam({interest})
-        }}><img src="https://www.w3schools.com/css/paris.jpg" alt="something" /> <p>{capitalizeFirst(interest)}</p></Topic>
+        }}> <p>{capitalizeFirst(interest)}</p></Topic>
         </Link>
     )
 }

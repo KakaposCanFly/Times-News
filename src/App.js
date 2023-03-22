@@ -4,6 +4,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Article from './components/Article';
 import MainScreen from './components/MainScreen';
+import Nav from './components/Nav';
 import Topics from './components/Topics';
 import useNewsSearch from './hooks/useNewsSearch';
 import countries from './selections/countries.json';
@@ -23,8 +24,9 @@ function App() {
 
   return (
     <>
-      <div>
-        <form onSubmit={e => {
+      <Nav />
+      <div >
+        <form className="form--container "onSubmit={e => {
           e.preventDefault()
           //set search params
           console.log("language in app: ", language)
@@ -41,20 +43,26 @@ function App() {
           document.getElementById("domainInput").value = ""
 
         }}>
-          <input id="queryInput" type='text' placeholder='query' onChange={e => {
+          <div class="input-group mb-3">
+  <div class="input-group-prepend ">
+          <input className='form-control form--gap' id="queryInput" type='text' placeholder='query' onChange={e => {
             setQuery(e.target.value)
           }}></input>
-          <input id="domainInput" type='text' placeholder='domain' onChange={e => {
+          <input className='form-control form--gap'  id="domainInput" type='text' placeholder='domain' onChange={e => {
             setDomain(e.target.value)
           }}></input>
-          <select onChange={
+          <div className="dropdown">
+          <select className="form--gap btn btn-secondary dropdown-toggle" onChange={
             e => setLanguage(e.target.value)
           }>
-            <option value="en" selected>EN</option>
+            
+            <option  className=" dropdown-menu" value="en" selected>EN</option>
             {languages.map((code, idx) => (
-              <option key={idx} value={code.code}>{(code.code).toUpperCase()}</option>
+              <option  key={idx} value={code.code}>{(code.code).toUpperCase()}</option>
             ))}
+            
           </select>
+          </div>
           {/* <select onChange={
             e => setCountry(e.target.value)
           }>
@@ -64,8 +72,10 @@ function App() {
             ))}
           </select> */}
           {/* <Link to="/"> */}
-          <button type='submit'>Search</button>
+          <button type='submit' className="btn btn-primary">Search</button>
           {/* </Link> */}
+          </div>
+          </div>
         </form>
       </div>
 
