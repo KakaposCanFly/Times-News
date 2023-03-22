@@ -44,9 +44,9 @@ export default function Nav() {
       <p>{temperature && icon && 
       <div className="nav--temperature">
         <img src={`https://openweathermap.org/img/w/${icon}.png`} alt="weather icon"/>
-      <p className="temp">{temperature.toFixed(1)} °F</p> 
-      <p className="temp-max">{tempMin.toFixed(1)} °F</p>
-      <p className="temp-min">{tempMax.toFixed(1)} °F </p>
+      <p className="temp">{temperature.toFixed(1)}°F</p> 
+      <p className="temp-max">{tempMin.toFixed(1)}°F</p>
+      <p className="temp-min">{tempMax.toFixed(1)}°F </p>
 </div>}</p>
     </div>
   );

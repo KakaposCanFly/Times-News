@@ -29,8 +29,9 @@
 }
 
 .temp-min {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
+  color: rgb(170, 170, 170)
 }
 .temp-max{
   font-size: 14px;

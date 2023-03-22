@@ -45,10 +45,10 @@ function App() {
         }}>
           <div class="input-group mb-3">
   <div class="input-group-prepend ">
-          <input className='form-control form--gap' id="queryInput" type='text' placeholder='query' onChange={e => {
+          <input className='form-control form--gap' id="queryInput" type='text' placeholder='Search' onChange={e => {
             setQuery(e.target.value)
           }}></input>
-          <input className='form-control form--gap'  id="domainInput" type='text' placeholder='domain' onChange={e => {
+          <input className='form-control form--gap'  id="domainInput" type='text' placeholder='Sources' onChange={e => {
             setDomain(e.target.value)
           }}></input>
           <div className="dropdown">
